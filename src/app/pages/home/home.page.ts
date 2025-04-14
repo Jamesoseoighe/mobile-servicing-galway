@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
+import { IonicModule } from '@ionic/angular'; // ✅ Required for Ionic components
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
+  standalone: true,
+  imports: [IonicModule, CommonModule]
 })
-export class HomePage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class HomePage {}

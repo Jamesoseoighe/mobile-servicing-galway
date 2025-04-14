@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
@@ -22,5 +22,5 @@ const routes: Routes = [
     path: 'contact',
     loadComponent: () => import('./pages/contact/contact.page').then(m => m.ContactPage)
   },
-  
+ 
 ];
