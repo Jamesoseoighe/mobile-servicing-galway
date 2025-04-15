@@ -1,0 +1,27 @@
+<ion-content>
+  <div class="login-wrapper">
+    <div class="login-container">
+      <img src="assets/logo.png" class="logo" alt="Logo" />
+
+      <h2>Welcome Back</h2>
+      <p style="color: #aaa;">Log into your account</p>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Email or Phone</ion-label>
+        <ion-input [(ngModel)]="identifier" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input [(ngModel)]="password" type="password"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" (click)="login()">Login</ion-button>
+
+      <p style="color: #FFD700; font-size: 14px;">
+        Don’t have an account?
+        <a routerLink="/register" style="color: #FFD700; text-decoration: underline;">Register</a>
+      </p>
+    </div>
+  </div>
+</ion-content>

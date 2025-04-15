@@ -1,0 +1,42 @@
+<ion-content>
+  <div class="login-wrapper">
+    <div class="login-container">
+      <img src="assets/logo.png" class="logo" alt="Logo" />
+
+      <h2>Create an Account</h2>
+      <p style="color: #aaa;">Sign up to get started</p>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="email" type="email"></ion-input>
+      </ion-item>
+
+      
+      <ion-item lines="none">
+        <ion-label position="floating">Phone Number</ion-label>
+        <ion-input [(ngModel)]="phone" type="tel"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input [(ngModel)]="password" type="password"></ion-input>
+      </ion-item>
+
+      
+<ion-item lines="none">
+  <ion-label position="floating">Confirm Password</ion-label>
+  <ion-input [(ngModel)]="confirmPassword" type="password"></ion-input>
+</ion-item>
+
+<ion-button expand="block" (click)="register()"
+[disabled]="!email || !password || password !== confirmPassword || !phone">
+Register
+</ion-button>
+
+      <p style="color: #FFD700; font-size: 14px;">
+        Already have an account?
+        <a routerLink="/login" style="color: #FFD700; text-decoration: underline;">Login</a>
+      </p>
+    </div>
+  </div>
+</ion-content>
