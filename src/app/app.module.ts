@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
+import { RouterModule } from '@angular/router';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -25,11 +26,13 @@ const firebaseConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    RouterModule.forRoot(routes), // ✅ correct for NgModule apps
+
     AngularFireModule.initializeApp(firebaseConfig), // ✅ compat version
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [provideRouter(routes)],
+  
   bootstrap: [AppComponent],
 })
 export class AppModule {}
