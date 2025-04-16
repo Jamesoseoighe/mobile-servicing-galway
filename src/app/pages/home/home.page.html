@@ -1,17 +1,14 @@
-<ion-header>
-  <ion-toolbar color="dark" style="--background: #000;">
-    <ion-title>Mobile Servicing Galway</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="home-container">
+    <img src="assets/logo.png" class="logo" alt="Logo" />
 
-<ion-content class="ion-padding ion-text-center">
+    <h1>Welcome to Mobile Servicing Galway</h1>
+    
 
-  <img src="assets/logo.png" alt="Logo" width="400" style="margin-top: 30px; border-radius: 12px;" />
-
-  
-  <p class="subtext">Your mobile mechanic & car cleaning solution</p>
-
-  <ion-button expand="block" routerLink="/booking" color="dark">Book a Service</ion-button>
-  <ion-button expand="block" fill="outline" routerLink="/services" color="medium">View Services</ion-button>
-
+    <ion-button expand="block" routerLink="/booking" color="primary">Book a Service</ion-button>
+    <ion-button expand="block" routerLink="/services" color="medium" fill="outline">View Services</ion-button>
+    <ion-button expand="block" routerLink="/profile" color="warning">View Profile</ion-button>
+    <ion-button expand="block" routerLink="/contact" color="tertiary">Contact Us</ion-button>
+    <ion-button expand="block" (click)="logout()" color="danger">Logout</ion-button>
+  </div>
 </ion-content>

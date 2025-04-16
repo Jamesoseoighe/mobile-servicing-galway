@@ -29,6 +29,14 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
-  }
+  },
+  {
+    path: 'booking',
+    loadChildren: () => import('./pages/booking/booking.module').then( m => m.BookingPageModule)
+  },
+  {
+    path: 'booking',
+    loadChildren: () => import('./pages/booking/booking.module').then( m => m.BookingPageModule)
+  },
   
 ];
