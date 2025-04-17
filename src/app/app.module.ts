@@ -2,32 +2,24 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
-import { provideRouter } from '@angular/router';
-import { routes } from './app.routes';
+
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyA3rQytZ_FJyqbXno-VIVYp5tB7C4J936E',
-  authDomain: 'mobile-servicing-galway.firebaseapp.com',
-  projectId: 'mobile-servicing-galway',
-  storageBucket: 'mobile-servicing-galway.appspot.com',
-  messagingSenderId: '304166260107',
-  appId: '1:304166260107:web:1ad4ec257ce0b78eaab38e'
-};
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig),
+    
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [provideRouter(routes)],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

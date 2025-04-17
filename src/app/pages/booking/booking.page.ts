@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { IonicModule, ToastController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { BookingService } from 'src/app/services/booking.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 
 @Component({
   selector: 'app-booking',
@@ -16,41 +17,42 @@ import { BookingService } from 'src/app/services/booking.service';
 export class BookingPage {
   booking = {
     name: '',
-    service: '',
+    phone: '',
     date: '',
     location: '',
-    phone: ''
+    service: ''
   };
 
   constructor(
     private afAuth: AngularFireAuth,
-    private toastCtrl: ToastController,
-    private bookingService: BookingService,
-    private router: Router
+    private firestore: AngularFirestore,
+    private toastCtrl: ToastController
   ) {}
 
   async submitBooking() {
-    if (!this.booking.name || !this.booking.service || !this.booking.date || !this.booking.location || !this.booking.phone) {
-      this.showToast('Please fill out all fields', 'warning');
-      return;
-    }
-
     const user = await this.afAuth.currentUser;
     if (!user) {
-      this.showToast('Login required.', 'danger');
+      this.showToast('Please log in to book a service.', 'warning');
       return;
     }
-
+  
     try {
-      await this.bookingService.addBooking({
+      console.log('Saving booking for user:', user.uid);
+      console.log('Booking data:', this.booking);
+  
+      const bookingRef = this.firestore.collection('bookings');
+      await bookingRef.add({
         ...this.booking,
         uid: user.uid,
         createdAt: new Date()
       });
-      this.showToast('Booking successful!', 'success');
-      this.router.navigateByUrl('/home');
+  
+      console.log('✅ Booking saved!');
+      this.showToast('Booking submitted successfully!', 'success');
+      this.booking = { name: '', phone: '', date: '', location: '', service: '' };
     } catch (err) {
-      this.showToast('Error submitting booking.', 'danger');
+      console.error('❌ Firestore error:', err);
+      this.showToast('Failed to submit booking.', 'danger');
     }
   }
 
@@ -61,6 +63,6 @@ export class BookingPage {
       position: 'bottom',
       color
     });
-    await toast.present();
+    toast.present();
   }
 }
