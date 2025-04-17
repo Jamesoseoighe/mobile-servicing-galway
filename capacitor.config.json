@@ -1,0 +1,6 @@
+{
+  "appId": "com.mobile.servicing.galway",
+  "appName": "Mobile Servicing Galway",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

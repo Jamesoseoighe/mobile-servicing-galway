@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Mobile Servicing Galway</string>
+    <string name="title_activity_main">Mobile Servicing Galway</string>
+    <string name="package_name">com.mobile.servicing.galway</string>
+    <string name="custom_url_scheme">com.mobile.servicing.galway</string>
+</resources>
