@@ -1,0 +1,26 @@
+.booking-container {
+    max-width: 450px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+  
+  .long-press-area {
+    transition: 0.2s ease-in-out;
+  }
+  
+  .long-pressed .booking-container {
+    transform: scale(1.01);
+    background-color: #222;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 2px #FFD700;
+  }
+  
+  h2 {
+    color: #FFD700;
+    font-weight: bold;
+  }
+  

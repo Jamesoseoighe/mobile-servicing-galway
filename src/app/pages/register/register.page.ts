@@ -33,7 +33,7 @@ export class RegisterPage {
     }
   
     try {
-      await this.authService.register(this.email, this.password, this.phone);
+      await this.authService.register(this.email, this.password);
       await this.showToast('Registration successful! Please log in.');
       this.router.navigateByUrl('/login');
     } catch (err: unknown) {

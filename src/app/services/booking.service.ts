@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Firestore, collection, addDoc, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
+
 export interface Booking {
   name: string;
   service: string;
