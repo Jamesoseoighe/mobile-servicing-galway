@@ -21,13 +21,9 @@ export const routes: Routes = [
   {
     path: 'booking',
     loadComponent: () => import('./pages/booking/booking.page').then(m => m.BookingPage)
-  },  {
-    path: 'contact',
-    loadComponent: () => import('./pages/contact/contact.page').then( m => m.ContactPage)
   },
   {
-    path: 'booking',
-    loadComponent: () => import('./pages/booking/booking.page').then( m => m.BookingPage)
+    path: 'contact',
+    loadComponent: () => import('./pages/contact/contact.page').then(m => m.ContactPage)
   }
-
 ];

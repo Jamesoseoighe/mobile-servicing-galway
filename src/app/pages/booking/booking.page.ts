@@ -3,9 +3,7 @@ import { IonicModule, ToastController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-
+import { Storage } from '@capacitor/storage';
 
 @Component({
   selector: 'app-booking',
@@ -23,37 +21,47 @@ export class BookingPage {
     service: ''
   };
 
-  constructor(
-    private afAuth: AngularFireAuth,
-    private firestore: AngularFirestore,
-    private toastCtrl: ToastController
-  ) {}
+  savedBookings: any[] = [];
+
+  constructor(private toastCtrl: ToastController) {}
+
+  // Load bookings every time page is entered
+  async ionViewWillEnter() {
+    await this.loadBookings();
+  }
 
   async submitBooking() {
-    const user = await this.afAuth.currentUser;
-    if (!user) {
-      this.showToast('Please log in to book a service.', 'warning');
+    if (!this.booking.name || !this.booking.phone || !this.booking.date || !this.booking.service) {
+      this.showToast('Please fill in all required fields.', 'warning');
       return;
     }
-  
+
     try {
-      console.log('Saving booking for user:', user.uid);
-      console.log('Booking data:', this.booking);
-  
-      const bookingRef = this.firestore.collection('bookings');
-      await bookingRef.add({
+      const existing = await Storage.get({ key: 'bookings' });
+      const bookings = existing.value ? JSON.parse(existing.value) : [];
+
+      bookings.push({
         ...this.booking,
-        uid: user.uid,
-        createdAt: new Date()
+        createdAt: new Date().toISOString()
       });
-  
-      console.log('✅ Booking saved!');
-      this.showToast('Booking submitted successfully!', 'success');
+
+      await Storage.set({
+        key: 'bookings',
+        value: JSON.stringify(bookings)
+      });
+
+      this.showToast('Booking saved locally!', 'success');
       this.booking = { name: '', phone: '', date: '', location: '', service: '' };
+      await this.loadBookings(); // Refresh the list
     } catch (err) {
-      console.error('❌ Firestore error:', err);
-      this.showToast('Failed to submit booking.', 'danger');
+      console.error('❌ Local save error:', err);
+      this.showToast('Failed to save booking locally.', 'danger');
     }
+  }
+
+  async loadBookings() {
+    const res = await Storage.get({ key: 'bookings' });
+    this.savedBookings = res.value ? JSON.parse(res.value) : [];
   }
 
   async showToast(message: string, color: string = 'dark') {

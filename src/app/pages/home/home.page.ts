@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Geolocation } from '@capacitor/geolocation';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -30,6 +31,10 @@ export class HomePage {
     console.log('Current location:', this.latitude, this.longitude);
     
   }
+  
+    goToBooking() {
+      this.router.navigateByUrl('/booking');
+    }
 
   async logout() {
     await this.afAuth.signOut();

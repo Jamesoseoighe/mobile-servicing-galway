@@ -1,38 +1,41 @@
+
+
 <ion-content class="ion-padding">
-  <h2 style="text-align: center; color: white;">Book a Service</h2>
+  <div class="booking-page-wrapper">
+    <img src="assets/logo.png" alt="Logo" class="logo" />
 
-  <ion-item>
-    <ion-label position="floating">Your Name</ion-label>
-    <ion-input [(ngModel)]="booking.name"></ion-input>
-  </ion-item>
+    <h1>Book Your Car Service</h1>
+    <p>Fill in the details below to request a mobile service.</p>
 
-  <ion-item>
-    <ion-label position="floating">Phone Number</ion-label>
-    <ion-input [(ngModel)]="booking.phone" type="tel"></ion-input>
-  </ion-item>
+    <form (ngSubmit)="submitBooking()">
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input [(ngModel)]="booking.name" name="name" required></ion-input>
+      </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Preferred Date</ion-label>
-    <ion-datetime presentation="date" [(ngModel)]="booking.date"></ion-datetime>
-  </ion-item>
+      <ion-item>
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input [(ngModel)]="booking.phone" name="phone" type="tel" required></ion-input>
+      </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Location</ion-label>
-    <ion-input [(ngModel)]="booking.location"></ion-input>
-  </ion-item>
+      <ion-item>
+        <ion-label position="floating">Date</ion-label>
+        <ion-datetime [(ngModel)]="booking.date" name="date" required></ion-datetime>
+      </ion-item>
 
-  <ion-item>
-    <ion-label>Service Type</ion-label>
-    <ion-select [(ngModel)]="booking.service">
-      <ion-select-option value="Oil Change">Oil Change</ion-select-option>
-      <ion-select-option value="Brake Repair">Brake Repair</ion-select-option>
-      <ion-select-option value="Diagnostics">Diagnostics</ion-select-option>
-      <ion-select-option value="Full Valet">Full Valet</ion-select-option>
-      <ion-select-option value="Battery Replacement">Battery Replacement</ion-select-option>
-    </ion-select>
-  </ion-item>
+      <ion-item>
+        <ion-label position="floating">Location</ion-label>
+        <ion-input [(ngModel)]="booking.location" name="location"></ion-input>
+      </ion-item>
 
-  <ion-button expand="block" class="ion-margin-top" (click)="submitBooking()">
-    Submit Booking
-  </ion-button>
+      <ion-item>
+        <ion-label position="floating">Service</ion-label>
+        <ion-input [(ngModel)]="booking.service" name="service" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" class="ion-margin-top">
+        Submit Booking
+      </ion-button>
+    </form>
+  </div>
 </ion-content>
