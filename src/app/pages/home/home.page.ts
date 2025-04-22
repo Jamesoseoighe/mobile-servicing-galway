@@ -36,6 +36,10 @@ export class HomePage {
       this.router.navigateByUrl('/booking');
     }
 
+    goToContact() {
+      this.router.navigateByUrl('/contact');
+    }
+
   async logout() {
     await this.afAuth.signOut();
     const toast = await this.toastCtrl.create({

@@ -1,41 +1,41 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="dark">
-    <ion-title>Contact Us</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content class="contact-page" fullscreen>
-  <ion-grid>
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="12" size-md="8" size-lg="6">
-        <!-- Contact Form -->
-        <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)">
-          <ion-item lines="full">
-            <ion-label position="stacked">Name</ion-label>
-            <ion-input type="text" name="user_name" [(ngModel)]="formData.user_name" required></ion-input>
-          </ion-item>
+<ion-content fullscreen>
+  <ion-button fill="clear" class="custom-back" (click)="goBack()">
+    <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+  </ion-button>
 
-          <ion-item lines="full">
-            <ion-label position="stacked">Email</ion-label>
-            <ion-input type="email" name="user_email" [(ngModel)]="formData.user_email" required></ion-input>
-          </ion-item>
+  <div class="page-wrapper">
+    <div class="contact-card">
+      <img src="assets/logo.png" alt="Logo" class="logo" />
 
-          <ion-item lines="full">
-            <ion-label position="stacked">Subject</ion-label>
-            <ion-input type="text" name="subject" [(ngModel)]="formData.subject" required></ion-input>
-          </ion-item>
+      <h1>We’d love to hear from you</h1>
+      <p class="subtitle">Have a question? Send us a message and we’ll get back to you shortly.</p>
 
-          <ion-item lines="full">
-            <ion-label position="stacked">Message</ion-label>
-            <ion-textarea name="message" [(ngModel)]="formData.message" rows="6" required>
-            </ion-textarea>
-          </ion-item>
+      <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)">
+        <ion-item class="rounded-input">
+          <ion-label position="floating">Your Name</ion-label>
+          <ion-input type="text" name="user_name" [(ngModel)]="formData.user_name" required></ion-input>
+        </ion-item>
 
-          <ion-button class="submit-btn" type="submit" expand="block">
-            Send Message
-          </ion-button>
-        </form>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+        <ion-item class="rounded-input">
+          <ion-label position="floating">Your Email</ion-label>
+          <ion-input type="email" name="user_email" [(ngModel)]="formData.user_email" required></ion-input>
+        </ion-item>
+
+        <ion-item class="rounded-input">
+          <ion-label position="floating">Subject</ion-label>
+          <ion-input name="subject" [(ngModel)]="formData.subject" required></ion-input>
+        </ion-item>
+
+        <ion-item class="rounded-input">
+          <ion-label position="floating">Message</ion-label>
+          <ion-textarea name="message" [(ngModel)]="formData.message" required></ion-textarea>
+        </ion-item>
+
+        <ion-button expand="block" type="submit" class="ion-margin-top">
+          Send Message
+        </ion-button>
+      </form>
+    </div>
+  </div>
 </ion-content>

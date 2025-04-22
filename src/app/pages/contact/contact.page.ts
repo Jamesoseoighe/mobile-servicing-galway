@@ -2,11 +2,20 @@ import { Component } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import emailjs from '@emailjs/browser';
+import { IonicModule } from '@ionic/angular';
+import { FormsModule} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.page.html',
-  styleUrls: ['./contact.page.scss']
+  styleUrls: ['./contact.page.scss'],
+  imports: [
+    IonicModule,
+    FormsModule,
+    CommonModule
+  ]
 })
 export class ContactPage {
   formData = {
@@ -15,8 +24,9 @@ export class ContactPage {
     subject: '',
     message: ''
   };
+  
 
-  constructor(private toastCtrl: ToastController) {}
+  constructor(private toastCtrl: ToastController, private router: Router) {}
 
   async sendEmail(form: NgForm) {
     if (form.valid) {
@@ -45,4 +55,8 @@ export class ContactPage {
     });
     toast.present();
   }
+  
+goBack() {
+  this.router.navigateByUrl('/home');
+}
 }

@@ -1,31 +1,72 @@
-// Define gold color variable for reuse
-$gold-color: #d4af37;
+$gold: #FFD700;
+$grey: #1e1e1e;
 
-.contact-page {
-  --ion-background-color: #000000; /* black background for the content */
-  color: #ffffff; /* base text color on dark background */
+ion-content {
+  --background: #000;
+  color: #636363;
 
-  ion-toolbar {
-    --background: #000000;
-    --color: $gold-color; /* title text in toolbar */
-  }
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 30px;
 }
 
-ion-item {
-  --background: transparent;
-  --border-color: $gold-color;    /* gold line under each input */
-  --ion-text-color: #ffffff;      /* input text color */
-  --ion-label-color: $gold-color; /* label text color */
+.contact-container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.contact-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  width: 200px;
+  margin-bottom: 10px;
+  border-radius: 16px;
+}
+
+h1 {
+  color: $gold;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #999;
+  font-size: 14px;
+  text-align: center;
+  margin: -4px 0 10px 0;
+}
+
+.rounded-input {
+  --background: $grey;
+  --color: #363636;
+  --placeholder-color: #333232;
+  --highlight-color-focused: $gold;
+  border-radius: 12px;
+  padding: 4px 8px;
 }
 
 ion-label {
+  color: $gold;
   font-weight: bold;
 }
 
-/* Style the submit button with gold background and dark text */
-.submit-btn {
-  --background: $gold-color;
-  --color: #000000;
-  --border-radius: 4px;
+ion-button {
+  --background: #FFD700;
+  --color: #000;
   font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(255, 215, 0, 0.4);
 }

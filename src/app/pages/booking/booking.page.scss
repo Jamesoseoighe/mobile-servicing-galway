@@ -57,3 +57,11 @@ ion-button {
   font-weight: bold;
   border-radius: 12px;
 }
+.custom-back {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 999;
+  color: #FFD700;
+  font-size: 20px;
+}
