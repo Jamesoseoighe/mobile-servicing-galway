@@ -1,0 +1,31 @@
+// Define gold color variable for reuse
+$gold-color: #d4af37;
+
+.contact-page {
+  --ion-background-color: #000000; /* black background for the content */
+  color: #ffffff; /* base text color on dark background */
+
+  ion-toolbar {
+    --background: #000000;
+    --color: $gold-color; /* title text in toolbar */
+  }
+}
+
+ion-item {
+  --background: transparent;
+  --border-color: $gold-color;    /* gold line under each input */
+  --ion-text-color: #ffffff;      /* input text color */
+  --ion-label-color: $gold-color; /* label text color */
+}
+
+ion-label {
+  font-weight: bold;
+}
+
+/* Style the submit button with gold background and dark text */
+.submit-btn {
+  --background: $gold-color;
+  --color: #000000;
+  --border-radius: 4px;
+  font-weight: bold;
+}
