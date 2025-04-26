@@ -1,0 +1,58 @@
+$gold: #FFD700;
+$grey: #1e1e1e;
+
+ion-content {
+  --background: #000;
+  color: #636363;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid $gold;
+  margin-bottom: 16px;
+}
+
+.no-profile-pic {
+  width: 150px;
+  height: 150px;
+  background-color: $grey;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  margin-bottom: 16px;
+}
+
+h1 {
+  color: $gold;
+  font-size: 24px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.profile-info {
+  color: #ccc;
+  font-size: 16px;
+  text-align: center;
+}
+
+.custom-back {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 999;
+  color: $gold;
+  font-size: 24px;
+}

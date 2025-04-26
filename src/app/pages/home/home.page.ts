@@ -35,6 +35,13 @@ export class HomePage {
     goToBooking() {
       this.router.navigateByUrl('/booking');
     }
+    goToViewProfile() {
+      this.router.navigateByUrl('/view-profile');
+    }
+    
+    goToViewServices() {
+      this.router.navigateByUrl('/view-services');
+    }
 
     goToContact() {
       this.router.navigateByUrl('/contact');

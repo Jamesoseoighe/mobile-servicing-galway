@@ -1,6 +1,9 @@
-
-
 <ion-content class="ion-padding">
+  <!-- Back Button inside ion-content -->
+  <ion-button fill="clear" class="custom-back" (click)="goBack()">
+    <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+  </ion-button>
+
   <div class="booking-page-wrapper">
     <img src="assets/logo.png" alt="Logo" class="logo" />
 
@@ -37,5 +40,33 @@
         Submit Booking
       </ion-button>
     </form>
+
+    <h2 class="section-title">Your Bookings</h2>
+
+    <ion-list *ngIf="savedBookings.length > 0">
+      <ion-item *ngFor="let b of savedBookings" class="booking-list-item">
+        <ion-label>
+          <h3>{{ b.service }}</h3>
+          <p>{{ b.date | date: 'longDate' }} - {{ b.location }}</p>
+          <small>Name: {{ b.name }} | Phone: {{ b.phone }}</small>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <p *ngIf="savedBookings.length === 0" class="no-bookings">
+      No bookings yet. Fill out the form above!
+    </p>
+
+    <!-- Google Maps Embedded: show only if booking.location is filled -->
+    <div *ngIf="booking.location" class="map-container">
+      <iframe
+        [src]="googleMapsUrl"
+        width="100%"
+        height="300"
+        style="border:0; border-radius:12px; margin-top:16px;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
   </div>
 </ion-content>

@@ -61,7 +61,13 @@ ion-button {
   position: absolute;
   top: 16px;
   left: 16px;
+  color: #FFD700; // gold
+  font-size: 24px;
   z-index: 999;
-  color: #FFD700;
-  font-size: 20px;
+}
+
+.map-container {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 450px;
 }

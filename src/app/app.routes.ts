@@ -26,5 +26,14 @@ export const routes: Routes = [
     path: 'contact',
     loadComponent: () =>
       import('./pages/contact/contact.page').then((m) => m.ContactPage)
+  },
+  {
+    path: 'view-services',
+    loadComponent: () => import('./pages/view-services/view-services.page').then(m => m.ViewServicesPage)
+  },  {
+    path: 'view-profile',
+    loadComponent: () => import('./pages/view-profile/view-profile.page').then( m => m.ViewProfilePage)
   }
+
+
 ];

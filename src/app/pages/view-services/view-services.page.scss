@@ -1,0 +1,74 @@
+$gold: #FFD700;
+$grey: #1e1e1e;
+
+ion-content {
+  --background: #000;
+  color: #636363;
+}
+
+.view-services-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+.logo {
+  width: 200px;
+  margin-bottom: 16px;
+  border-radius: 16px;
+}
+
+h1 {
+  color: $gold;
+  font-size: 24px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.subtitle {
+  color: #999;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.service-list {
+  width: 100%;
+}
+
+.service-card {
+  --background: $grey;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.service-card h2 {
+  color: $gold;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.service-card p {
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.service-card small {
+  color: #aaa;
+}
+
+.custom-back {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 999;
+  color: $gold;
+  font-size: 24px;
+}

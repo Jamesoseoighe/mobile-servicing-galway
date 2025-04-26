@@ -1,0 +1,19 @@
+<ion-content class="ion-padding">
+  <ion-button fill="clear" class="custom-back" (click)="goBack()">
+    <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+  </ion-button>
+
+  <div class="profile-container">
+    <img *ngIf="profileImage; else noImage" [src]="profileImage" class="profile-pic" />
+    <ng-template #noImage>
+      <div class="no-profile-pic">No Profile Picture</div>
+    </ng-template>
+
+    <h1>Your Profile</h1>
+
+    <p class="profile-info">Total Services Booked: <strong>{{ totalBookings }}</strong></p>
+
+    <input type="file" accept="image/*" (change)="onFileSelected($event)" hidden #fileInput />
+    <ion-button expand="block" (click)="fileInput.click()">Upload Profile Picture</ion-button>
+  </div>
+</ion-content>
