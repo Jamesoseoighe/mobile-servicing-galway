@@ -17,9 +17,9 @@ import { environment } from '../environments/environment';
     IonicModule.forRoot(),
 
 
-    AngularFireModule.initializeApp(environment.firebase), // ✅ correct
+    AngularFireModule.initializeApp(environment.firebase), 
     AngularFireAuthModule,
-    AngularFirestoreModule // ✅ required for AngularFirestore to work
+    AngularFirestoreModule 
   ],
   providers: [provideRouter(routes)],
   bootstrap: [AppComponent]
