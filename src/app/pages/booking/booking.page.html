@@ -41,7 +41,7 @@
       </ion-button>
     </form>
 
-    <h2 class="section-title">Your Bookings</h2>
+    
 
     <ion-list *ngIf="savedBookings.length > 0">
       <ion-item *ngFor="let b of savedBookings" class="booking-list-item">
@@ -52,21 +52,13 @@
         </ion-label>
       </ion-item>
     </ion-list>
-
+    <ion-button expand="block" color="danger" (click)="confirmDeleteAll()" class="ion-margin-top">
+      Delete All Bookings
+    </ion-button>
     <p *ngIf="savedBookings.length === 0" class="no-bookings">
       No bookings yet. Fill out the form above!
     </p>
 
-    <!-- Google Maps Embedded: show only if booking.location is filled -->
-    <div *ngIf="booking.location" class="map-container">
-      <iframe
-        [src]="googleMapsUrl"
-        width="100%"
-        height="300"
-        style="border:0; border-radius:12px; margin-top:16px;"
-        allowfullscreen=""
-        loading="lazy">
-      </iframe>
-    </div>
+    
   </div>
 </ion-content>

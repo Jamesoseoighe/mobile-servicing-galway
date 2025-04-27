@@ -89,11 +89,37 @@ export class BookingPage {
     toast.present();
   }
 
-  // ✅ New: Google Maps URL Getter
-  get googleMapsUrl(): SafeResourceUrl {
-    if (!this.booking.location) return '';
-    const encoded = encodeURIComponent(this.booking.location);
-    const url = `https://www.google.com/maps?q=${encoded}&output=embed`;
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  async confirmDeleteAll() {
+    const alert = document.createElement('ion-alert');
+    alert.header = 'Confirm Delete';
+    alert.message = 'Are you sure you want to delete ALL bookings?';
+    alert.buttons = [
+      {
+        text: 'Cancel',
+        role: 'cancel'
+      },
+      {
+        text: 'Delete',
+        role: 'destructive',
+        handler: () => {
+          this.deleteAllBookings();
+        }
+      }
+    ];
+    document.body.appendChild(alert);
+    await alert.present();
+  }
+  
+  async deleteAllBookings() {
+    await Storage.remove({ key: 'bookings' });
+    this.savedBookings = [];
+    
+    const toast = await this.toastCtrl.create({
+      message: 'All bookings deleted!',
+      duration: 2000,
+      color: 'danger',
+      position: 'bottom'
+    });
+    toast.present();
   }
 }
